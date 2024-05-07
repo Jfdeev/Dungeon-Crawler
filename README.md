@@ -55,15 +55,25 @@ Compilação e Execução
 Para compilar e executar o jogo, siga os seguintes passos:
 
 Abra um terminal.
+
 Navegue até o diretório onde os arquivos do projeto estão localizados.
+
 Compile o código fonte utilizando um compilador C compatível, por exemplo:
+
 css
+
 Copy code
+
 gcc main.c Jogoatualizadasso.c
+
 Execute o arquivo executável gerado:
+
 bash
+
 Copy code
+
 Jogoatualizadasso.c
+
 
 
 Contribuições
