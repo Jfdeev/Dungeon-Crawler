@@ -80,6 +80,7 @@ Contribuições
 Contribuições são bem-vindas! Se você tiver sugestões de melhorias ou encontrou algum bug no jogo, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
 Autores
+
 João Felipe da Rocha Soares
 
 Matheus Diniz
