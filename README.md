@@ -81,8 +81,11 @@ Contribuições são bem-vindas! Se você tiver sugestões de melhorias ou encon
 
 Autores
 João Felipe da Rocha Soares
+
 Matheus Diniz
+
 João Ricardo
+
 
 
 Licença
