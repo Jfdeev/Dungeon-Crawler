@@ -42,31 +42,50 @@ V: Símbolo que representa o monstro nível 2. Esse monstro tem uma inteligênci
 
 
 Jogoatualizadasso.exe: Arquivo principal que contém a função main() do programa.
+
 Jogoatualizadasso.c: Arquivo contendo as funções principais do jogo.
+
 Jogoatualizadasso.h: Arquivo de cabeçalho que contém os protótipos das funções utilizadas.
+
 outros arquivos: Qualquer outro arquivo necessário para o projeto, como bibliotecas adicionais ou arquivos de configuração.
 
+
 Compilação e Execução
+
 Para compilar e executar o jogo, siga os seguintes passos:
 
+
 Abra um terminal.
+
 Navegue até o diretório onde os arquivos do projeto estão localizados.
+
 Compile o código fonte utilizando um compilador C compatível, por exemplo:
+
 css
+
 Copy code
+
 gcc main.c Jogoatualizadasso.c
+
 Execute o arquivo executável gerado:
+
 bash
+
 Copy code
+
 Jogoatualizadasso.c
+
 
 Contribuições
 Contribuições são bem-vindas! Se você tiver sugestões de melhorias ou encontrou algum bug no jogo, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
 Autores
 João Felipe da Rocha Soares
+
 Matheus Diniz
+
 João Ricardo
+
 
 Licença
 Este projeto é licenciado sob a Licença MIT.
