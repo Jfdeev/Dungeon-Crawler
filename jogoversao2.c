@@ -49,7 +49,7 @@ void menu(){
 //Tutorial
 void tutorial(){
     system("cls");
-    printf("Bem vindo aventureiro, aqui voce tera uma nocaoo basica do jogo\nW -> Mover para cima\nA -> Mover para esquerda\nS -> Mover para baixo\nD -> Mover para direita\nI -> Para interagir com objeto que esta encima\nOs monstros sao representados por X e V, caso voce toque neles 3 vezes a fase e reniciada\n& -> Simbolo que representa o jogador.\n# -> Simbolo representa um espinho que ao jogador toca-lo tres vezes o jogador morre\nO -> Simbolo representa um botao que ao jogador interagir com ele acontece uma surpresa...\nAo chegar na porta final po uma questao de algoritimo voce tera que dar um duplo clique no i para passar de fase, nas proximas fases isso sera corrrigido ou continuara do jeiro q esta, lembrando que voce tera que realizar o duplo clique em frente da porta = para abri-la e passar de fase.");
+    printf("Bem vindo aventureiro, aqui voce tera uma nocaoo basica do jogo\nW -> Mover para cima\nA -> Mover para esquerda\nS -> Mover para baixo\nD -> Mover para direita\nI -> Para interagir com objeto que esta encima\nOs monstros sao representados por X e V, caso voce toque neles 3 vezes a fase e reniciada\n& -> Simbolo que representa o jogador.\nV -> Monstro inteligente que e capaz de destruir paredes e espinhos por conta da sua forca, use isso ao seu favor.\n# -> Simbolo representa um espinho que ao jogador toca-lo tres vezes o jogador morre\nO -> Simbolo representa um botao que ao jogador interagir com ele acontece uma surpresa...\nAo chegar na porta final po uma questao de algoritimo voce tera que dar um duplo clique no i para passar de fase, nas proximas fases isso sera corrrigido ou continuara do jeiro q esta, lembrando que voce tera que realizar o duplo clique em frente da porta = para abri-la e passar de fase.\n Fase 1 -> Uma Ruina antiga que foi ser explorada\n Fase 2 -> Um labirinto de grama alta onde tem um Monstro extremamente forte e inteligente, porem ele nao e tao rapido, ah ele pula alto tambem, cuidado...");
             printf("\nPressione qualquer tecla para voltar ao menu!");
             getch();
             system("cls");
@@ -323,6 +323,7 @@ void jogar(){
     }
 void fase2(){
 	int i, j;
+	int movimento_contador = 0;
 	int vida = 3;
     system("cls");
     printf("Segunda Fase.\n");
@@ -348,8 +349,10 @@ void fase2(){
             }
             //Posicao inicial do jogador
         int x = 3, y = 3;
-        //Posicao inicial do monstro
+        //Posicao inicial do monstro 1
         int xm = 5, ym = 4;
+        //Posicao inicial do monstro 2
+        int xm2 = 16, ym2 = 9;
         //elemantos
         char chave1 = '@', chave2 = '@', chave3 = '@', porta1 = 'D', porta2 = 'D', porta3 = 'D';
         char monstro = 'X';
@@ -392,7 +395,7 @@ void fase2(){
                 }
                 printf("\n");
             }
-            // Monstro nivel 2
+            // Monstro nivel 1
             srand(time(NULL));
             mapa2[xm][ym] = monstro;
             int o;
@@ -421,6 +424,33 @@ void fase2(){
                     mapa2[xm][ym - 1] = ' ';
                 }
             }
+            // Monstro nivel 2
+             mapa2[xm2][ym2] = 'V';
+        if (movimento_contador == 2){
+            int dif_x = x - xm2;
+            int dif_y = y - ym2;
+            if (abs(dif_x) > abs(dif_y)){
+                if (dif_x > 0){
+                    xm2 ++;
+                    mapa2[xm2 - 1][ym2] = ' ';
+                }
+                else if (dif_x < 0){
+                    xm2 --;
+                    mapa2[xm2 + 1][ym2] = ' ';
+                }
+            }
+            else{
+                if (dif_y > 0){
+                    ym2 ++;
+                    mapa2[xm2][ym2 - 1] = ' ';
+                }
+                else if (dif_y < 0){
+                    ym2 --;
+                    mapa2[xm2][ym2 + 1] = ' ';
+                }
+            }
+            movimento_contador = 0;
+        }
             printf("\n\nPressione 'q' para sair.\n");
             int mov = getch();
             //Movimentacao do jogador
@@ -474,9 +504,8 @@ void fase2(){
                         x--;
                         mapa2[x+1][y] = ' ';
                     }
-                    
+                    movimento_contador ++;
                 }
-                system("cls");
             }
             else if(mov == 's'){
                 if(mapa2[x+1][y] != '*' && mapa2[x+1][y] != 'D'){
@@ -533,9 +562,9 @@ void fase2(){
                     else{
                         x++;
                         mapa2[x-1][y] = ' ';
-                    }  
+                    }
+					movimento_contador ++;  
                 }
-                system("cls");  
             }
             else if(mov == 'a'){
                 if (mapa2[x][y-1] != '*' && mapa2[x][y-1] != 'D'){
@@ -588,9 +617,8 @@ void fase2(){
                     if((mapa2[x][y] == mapa2[1][1] && chave1_obtida == 0)){
                         mapa2[x][y+1] = '@';
                     }
-                    
+                    movimento_contador ++;
                 }
-                system("cls");
             }  
             else if(mov == 'd'){
                 if(mapa2[x][y+1] != '*' && mapa2[x][y-1] != 'D'){
@@ -639,11 +667,17 @@ void fase2(){
                     if((mapa2[x][y] == mapa2[1][1] && chave1_obtida == 0)){
                         mapa2[x][y-1] = '@';
                     }
-                    
+                 	movimento_contador ++;   
                 }
-                system("cls");
             }
             if (x == xm && y == ym){
+            	vida--;
+        		printf("Voce foi pego pelo monstro, Voce tem %d vidas!\n", vida);
+        		printf("Pressione qualquer tecla para continuar...\n");
+        		getch();
+        		system("cls");
+    		}
+    		if (x == xm2 && y == ym2){
             	vida--;
         		printf("Voce foi pego pelo monstro, Voce tem %d vidas!\n", vida);
         		printf("Pressione qualquer tecla para continuar...\n");
