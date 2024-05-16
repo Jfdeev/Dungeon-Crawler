@@ -13,6 +13,7 @@ int chave3_obtida = 0; // Inicialmente o jogador nao possui a chave 3
 void tutorial();
 void jogar();
 void fase2();
+void fase3();
 //Menu Inicial
 void menu(){
     int menu1;
@@ -311,7 +312,7 @@ void jogar(){
                 chave3_obtida = 1;
                 system("cls");
             }
-            if(mov == 'i' && (mapa1[x][y] == mapa1[9][1])){
+            if(mov == 's' && (mapa1[x][y] == mapa1[9][1])){
                 return fase2();
             }
             else{
@@ -730,7 +731,7 @@ void fase2(){
                 chave1_obtida++;
                 system("cls");
             }
-            else if(mov == 'i' && (x == 19 && y == 7)){
+            else if(mov == 's' && (x == 19 && y == 7)){
             	printf("Parabens, voce escapou do labirinto da morte e passou para a fase 3.\n");
             	printf("Pressione qualquer tecla para continuar.\n");
             	getch();
