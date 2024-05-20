@@ -100,11 +100,8 @@ void jogar(){
         //Posicao inicial do jogador
         int x = 1, y = 8;
         //Posicao inicial do monstro
-        int xm = 5, ym = 4;
         //Colocar os elementos no mapa
         char chave1 = '@', chave2 = '@', chave3 = '@', porta1 = 'D', porta2 = 'D', porta3 = 'D';
-        char monstro = 'X';
-        mapa1[xm][ym] = monstro;
         mapa1[1][3] = porta1;
         mapa1[8][8] = chave1;
         mapa1[6][2] = porta2;
@@ -120,35 +117,6 @@ void jogar(){
                     printf("%c ", mapa1[i][j]);
                 }
                 printf("\n");
-            }
-            // Monstro nivel 1
-            srand(time(NULL));
-            mapa1[xm][ym] = monstro;
-            int o;
-            o = rand()%4;
-            if(o == 0){
-                if(mapa1[xm - 1][ym] != '*' && mapa1[xm - 1][ym] != 'D' && mapa1[xm - 1][ym] != '=' && mapa1[xm - 1][ym] != 'h'){
-                    xm--;
-                    mapa1[xm + 1][ym] = ' ';
-                }
-            }
-            if(o == 1){
-                if(mapa1[xm + 1][ym] != '*' && mapa1[xm + 1][ym] != 'D' && mapa1[xm + 1][ym] != '=' && mapa1[xm + 1][ym] != 'h'){
-                    xm++;
-                    mapa1[xm - 1][ym] = ' ';
-                }
-            }
-            if(o == 2){
-                if(mapa1[xm][ym - 1] != '*' && mapa1[xm][ym - 1] != 'D' && mapa1[xm][ym - 1] != '=' && mapa1[xm][ym - 1] != 'h'){
-                    ym--;
-                    mapa1[xm][ym + 1] = ' ';
-                }
-            }
-            if(o == 3){
-                if(mapa1[xm][ym + 1] != '*' && mapa1[xm][ym + 1] != 'D' && mapa1[xm][ym + 1] != '=' && mapa1[xm][ym + 1] != 'h'){
-                    ym++;
-                    mapa1[xm][ym - 1] = ' ';
-                }
             }
             printf("\n\nPressione 'q' para sair.\n");
             int mov = getch();
@@ -265,13 +233,6 @@ void jogar(){
                 }
                 system("cls");
             }
-            if (x == xm && y == ym){
-            	vida--;
-        		printf("Voce foi pego pelo monstro!, Voce tem %d vidas\n", vida);
-        		printf("Pressione qualquer tecla para continuar...\n");
-        		getch();
-        		system("cls");
-    		}
     		if(vida == 0){
     			printf("Voce Morreu, Voce e pessimo vai treinar\n");
         		printf("Pressione qualquer tecla para continuar...\n");
@@ -319,7 +280,6 @@ void jogar(){
                 system("cls");
             }
                 mapa1[x][y] = '&';
-                mapa1[xm][ym] = monstro;
         }
     }
 void fase2(){
@@ -748,11 +708,36 @@ void fase2(){
    }
 
 void fase3(){
-    printf("Aguarde por mais atualizacoes, ja  voltamos com o game.\n");
-    printf("Pressione qualquer tecla para continuar.\n");
-    getch();
-    system("cls");
-    return menu();
+	int vida;
+	int i, j;
+	system("cls");
+	printf("Terceira Fase\n");
+    char mapa3[40][40];
+        for(i = 0; i < 40; i++){
+            for(j = 0; j < 40; j++){
+                //Paredes externas
+                if(i == 0 || i == 39){
+                    mapa3[i][j] = '*';
+                }
+                else if (j == 0 || j == 39){
+                    mapa3[i][j] = '*';
+                }
+                //Espacos Vazios
+                else if (i > 0 && i < 39){
+                    mapa3[i][j] = ' ';
+                }
+			  }
+            }
+            while(1){
+    			//impriminmdo o mapa
+    			for(i=0;i<40;i++){
+    				for(j=0;j<40;j++){
+    					printf("%c ", mapa3[i][j]);
+					}
+					printf("\n");
+				}
+			
+			}
 }
 int main() {
     menu();
