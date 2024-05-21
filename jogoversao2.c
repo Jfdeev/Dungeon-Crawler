@@ -15,7 +15,7 @@ void tutorial();
 void jogar();
 void fase2();
 void fase3();
-//Menu Inicial
+//Menu Inicials
 void menu(){
     int menu1;
     	printf("Menu Principal\n(1) Jogar\n(2) Tutorial\n(3) Sair\n");
@@ -674,7 +674,7 @@ void fase2(){
    }
 
 void fase3(){
-	int vida;
+	int vida = 3;
 	int i, j;
 	int tunel_aberto = 0;
     int movimento_contador = 0;
@@ -744,6 +744,11 @@ void fase3(){
     mapa3[xm2][ym2] = 'V';
     mapa3[xm][ym] = monstro;
     mapa3[30][5] = botao;
+    mapa3[3][38] = porta1;
+    mapa3[3][39] = porta1;
+    mapa3[29][34] = teletransporte;
+    mapa3[11][19] = teletransporte;
+    
 
     while (1) {
         // Imprimindo o mapa
@@ -832,6 +837,14 @@ void fase3(){
                     mapa3[x + 1][y] = ' ';
                     movimento_contador++;
                 }
+                else if((mapa3[x][y] == mapa3[37][37] && chave1_obtida == 0)){
+                    	x--;
+                        mapa3[x+1][y] = '@';
+                }
+                else if((mapa3[x][y] == mapa3[29][34] || (mapa3[x][y] == mapa3[11][19]))){
+                    	x--;
+                        mapa3[x+1][y] = '>';
+                }
                 else if((mapa3[x][y] == mapa3[30][5]) || (mapa3[x][y] == mapa3[18][17]) ){
                         x--;
                         mapa3[x+1][y] = 'O';
@@ -856,6 +869,14 @@ void fase3(){
                     x++;
                     mapa3[x - 1][y] = ' ';
                     movimento_contador++;
+                }
+                else if((mapa3[x][y] == mapa3[37][37] && chave1_obtida == 0)){
+                    	x++;
+                        mapa3[x-1][y] = '@';
+                }
+                else if((mapa3[x][y] == mapa3[29][34] || (mapa3[x][y] == mapa3[11][19]))){
+                    	x++;
+                        mapa3[x-1][y] = '>';
                 }
                 else if((mapa3[x][y] == mapa3[30][5]) || (mapa3[x][y] == mapa3[18][17]) ){
                         x++;
@@ -882,6 +903,14 @@ void fase3(){
                     mapa3[x][y + 1] = ' ';
                     movimento_contador++;
                 }
+                else if((mapa3[x][y] == mapa3[37][37] && chave1_obtida == 0)){
+                    	y--;
+                        mapa3[x][y+1] = '@';
+                }
+                else if((mapa3[x][y] == mapa3[29][34] || (mapa3[x][y] == mapa3[11][19]))){
+                    	y--;
+                        mapa3[x][y+1] = '>';
+                }
                 else if((mapa3[x][y] == mapa3[30][5]) || (mapa3[x][y] == mapa3[18][17]) ){
                         y--;
                         mapa3[x][y+1] = 'O';
@@ -906,6 +935,14 @@ void fase3(){
                     y++;
                     mapa3[x][y - 1] = ' ';
                     movimento_contador++;
+                }
+                else if((mapa3[x][y] == mapa3[37][37] && chave1_obtida == 0)){
+                    	y++;
+                        mapa3[x][y-1] = '@';
+                }
+                else if((mapa3[x][y] == mapa3[29][34] || (mapa3[x][y] == mapa3[11][19]))){
+                    	y++;
+                        mapa3[x][y-1] = '>';
                 }
                 else if((mapa3[x][y] == mapa3[30][5]) || (mapa3[x][y] == mapa3[18][17]) ){
                         y++;
@@ -968,8 +1005,62 @@ void fase3(){
         	//Chave
         	mapa3[37][37] = '@';
 		}
-		
+		else if(mov == 'i' && (x == 37 && y == 37)){
+                chave1_obtida++;
+                mapa3[3][38] = '=';
+                mapa3[3][39] = '=';
+                system("cls");
+        }
+		if(mov == 'w' && (x == 29 && y == 34)){
+			mapa3[x][y] = ' ';
+			mapa3[29][34] = '>';
+			int destX = 11;
+			int destY = 19;
+			x = destX;
+    		y = destY;
+    		mapa3[x][y] = '&';
+		}
+		if (x == xm && y == ym){
+            	vida--;
+        		printf("Voce foi pego pelo monstro, Voce tem %d vidas!\n", vida);
+        		printf("Pressione qualquer tecla para continuar...\n");
+        		getch();
+        		system("cls");
+    		}
+    	if (x == xm2 && y == ym2){
+            	vida--;
+        		printf("Voce foi pego pelo monstro, Voce tem %d vidas!\n", vida);
+        		printf("Pressione qualquer tecla para continuar...\n");
+        		getch();
+        		system("cls");
+    		}
+    	if (mapa3[x][y] == espinho){
+    			vida--;
+    			printf("Voce foi atingido por um espinho venenoso, Voce tem %d vidas\n", vida);
+        		printf("Pressione qualquer tecla para continuar...\n");
+        		getch();
+        		system("cls");
+			}
+		if(vida==0){
+				printf("Voce Morreu, Voce e pessimo vai treinar\n");
+        		printf("Pressione qualquer tecla para continuar...\n");
+        		getch();
+        		system("cls");
+        		return fase2();
+			}
+        else if(mov == 'q'){
+            printf("Deseja sair do jogo? (S/N): ");
+            char resposta;
+            scanf(" %c", &resposta);
+            if(resposta == 'S' || resposta == 's') {
+                printf("Voce saiu do jogo.\n");
+                printf("Pressione qualquer tecla para voltar ao menu.\n");
+                getch();
+                system("cls");
+                return menu();
+            }
     }
+}
 }
 int main() {
     menu();
