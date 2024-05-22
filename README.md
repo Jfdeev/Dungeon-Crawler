@@ -43,10 +43,16 @@ X: Símbolo que representa o monstro nível 1. Esse monstro tem um movimento ale
 
 V: Símbolo que representa o monstro nível 2. Esse monstro tem uma inteligência para seguir o jogador (há várias maneiras de implementar isso). Caso o monstro toque no jogador, a fase é reiniciada.
 
+Historia do jogo:
+Era uma vez, o GOAT Casseb se perdeu do seu grande amigo Pedro Girotto em uma trilha.
+Ele escuta uma voz vindo de uma caverna escura, um andarilho que passava diz para Casseb que la habitam monstros...
+Entao se prepare para enfrenta-los para salvar o Girotto.
+Nessa jornada voce encontrara espinhos, botoes e chaves entao tome cuidado com cada passo seu.
+
 
 Jogoatualizadasso.exe: Arquivo principal que contém a função main() do programa.
 
-Jogoatualizadasso.c: Arquivo contendo as funções principais do jogo.
+jogoversao2.c: Arquivo contendo as funções principais do jogo.
 
 Jogoatualizadasso.h: Arquivo de cabeçalho que contém os protótipos das funções utilizadas.
 
