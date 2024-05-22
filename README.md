@@ -93,9 +93,9 @@ Autores
 João Felipe da Rocha Soares
 
 Matheus Diniz
-
+ --> https://github.com/diniztheus
 João Ricardo
-https://github.com/jricass
+ --> https://github.com/jricass
 
 
 Licença
