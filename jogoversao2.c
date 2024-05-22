@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
@@ -21,10 +20,10 @@ void menu(){
     	printf("Menu Principal\n(1) Jogar\n(2) Tutorial\n(3) Sair\n");
     	scanf("%d", &menu1);
         if(menu1 == 1){
-            fase3();
+            jogar();
         }
         else if(menu1 == 2){
-            tutorial();
+            tutorial();s
         }
         else if(menu1 == 3){
             system("cls");
@@ -275,8 +274,12 @@ void jogar(){
                 system("cls");
             }
             if(mov == 's' && (mapa1[x][y] == mapa1[9][1])){
-                return fase2();
-            }
+                printf("Parabens, voce ajudou o Casseb a passar por esse primeira fase, mas tome cuidado que monstros estao por vir....\nBoa sorte guerreiro\n");
+            	printf("Pressione qualquer tecla para continuar.\n");
+            	getch();
+            	system("cls");
+				return fase2();
+			}
             else{
                 system("cls");
             }
@@ -658,7 +661,7 @@ void fase2(){
                 system("cls");
             }
             else if(mov == 's' && (x == 19 && y == 7)){
-            	printf("Parabens, voce escapou do labirinto da morte e passou para a fase 3.\n");
+            	printf("Parabens, voce escapou do labirinto da morte e passou para a ultima fase para finalmente poder salvar Pedro Girotto\nAgora esteja preparado para enfrentar os montros e espinhos");
             	printf("Pressione qualquer tecla para continuar.\n");
             	getch();
             	system("cls");
@@ -703,6 +706,8 @@ void fase3(){
             // Sala superior direita
             else if ((i == 1 || i == 10) && j >= 29 && j <= 38) {
                 mapa3[i][j] = '*';
+                mapa3[5][1] = '>';
+                mapa3[9][9] = 'O';
             } else if ((j == 29 || j == 38) && i >= 1 && i <= 10) {
                 mapa3[i][j] = '*';
             }
@@ -722,6 +727,7 @@ void fase3(){
             // Horizontais
             else if ((i == 11 || i == 28) && j >= 11 && j <= 28) {
                 mapa3[i][j] = '*';
+                mapa3[28][19] = '>';
             }
             // Verticais
             else if ((j == 11 || j == 28) && i >= 11 && i <= 28) {
@@ -749,6 +755,86 @@ void fase3(){
     mapa3[29][34] = teletransporte;
     mapa3[11][19] = teletransporte;
     
+    // Espinhos sala central
+    mapa3[12][20] = espinho;
+    mapa3[13][20] = espinho;
+    mapa3[14][20] = espinho;
+    mapa3[14][21] = espinho;
+    mapa3[14][22] = espinho;
+    mapa3[14][23] = espinho;
+    mapa3[14][24] = espinho;
+    mapa3[15][25] = espinho;
+    mapa3[16][25] = espinho;
+    mapa3[17][25] = espinho;
+    mapa3[18][25] = espinho;
+    mapa3[19][25] = espinho;
+    mapa3[19][26] = espinho;
+    mapa3[19][27] = espinho;
+    mapa3[19][27] = espinho;
+    mapa3[20][27] = espinho;
+    mapa3[21][27] = espinho;
+    mapa3[22][26] = espinho;
+    mapa3[22][25] = espinho;
+    mapa3[22][25] = espinho;
+    mapa3[23][24] = espinho;
+    mapa3[23][23] = espinho;
+    mapa3[24][23] = espinho;
+    mapa3[25][23] = espinho;
+    mapa3[26][22] = espinho;
+    mapa3[27][22] = espinho;
+    mapa3[27][21] = espinho;
+    mapa3[27][20] = espinho;
+    mapa3[14][17] = espinho;
+    mapa3[15][17] = espinho;
+    mapa3[16][18] = espinho;
+    mapa3[17][19] = espinho;
+    mapa3[18][19] = espinho;
+    mapa3[19][19] = espinho;
+    mapa3[19][20] = espinho;
+    mapa3[22][19] = espinho;
+    mapa3[22][18] = espinho;
+    mapa3[23][18] = espinho;
+    mapa3[24][18] = espinho;
+    mapa3[25][18] = espinho;
+    mapa3[26][18] = espinho;
+    mapa3[27][18] = espinho;
+    mapa3[12][13] = espinho;
+    mapa3[12][12] = espinho;
+    mapa3[13][12] = espinho;
+    mapa3[14][12] = espinho;
+    mapa3[15][12] = espinho;
+    mapa3[16][12] = espinho;
+    mapa3[17][12] = espinho;
+    mapa3[17][13] = espinho;
+    mapa3[17][14] = espinho;
+    mapa3[18][15] = espinho;
+    mapa3[19][15] = espinho;
+    mapa3[20][14] = espinho;
+    mapa3[21][13] = espinho;
+    mapa3[21][12] = espinho;
+    mapa3[22][12] = espinho;
+    mapa3[23][12] = espinho;
+    mapa3[24][12] = espinho;
+    mapa3[24][13] = espinho;
+    mapa3[24][14] = espinho;
+    mapa3[25][12] = espinho;
+    mapa3[25][13] = espinho;
+    mapa3[25][14] = espinho;
+    mapa3[25][15] = espinho;
+    mapa3[26][12] = espinho;
+    mapa3[26][13] = espinho;
+    mapa3[26][14] = espinho;
+    mapa3[27][12] = espinho;
+    mapa3[27][13] = espinho;
+    mapa3[27][14] = espinho;
+    mapa3[27][15] = espinho;
+    mapa3[27][16] = espinho;
+    mapa3[27][17] = espinho;
+    mapa3[26][25] = espinho;
+    mapa3[26][26] = espinho;
+    mapa3[25][26] = espinho;
+    
+   
 
     while (1) {
         // Imprimindo o mapa
@@ -797,21 +883,21 @@ void fase3(){
             int dif_x = x - xm2;
             int dif_y = y - ym2;
             if (abs(dif_x) > abs(dif_y)) {
-                if (dif_x > 0 && mapa3[xm2 + 1][ym2] != '*' && mapa3[xm2 + 1][ym2] != 'D') {
+                if (dif_x > 0 && mapa3[xm2 + 1][ym2] != '*' && mapa3[xm2 + 1][ym2] != 'D' && mapa3[xm2 + 1][ym2] != '#'){
                     mapa3[xm2][ym2] = ' ';
                     xm2++;
                     mapa3[xm2][ym2] = 'V';
-                } else if (dif_x < 0 && mapa3[xm2 - 1][ym2] != '*'&& mapa3[xm2 - 1][ym2] != 'D') {
+                } else if (dif_x < 0 && mapa3[xm2 - 1][ym2] != '*' && mapa3[xm2 - 1][ym2] != 'D' && mapa3[xm2 - 1][ym2] != '#') {
                     mapa3[xm2][ym2] = ' ';
                     xm2--;
                     mapa3[xm2][ym2] = 'V';
                 }
             } else {
-                if (dif_y > 0 && mapa3[xm2][ym2 + 1] != '*' && mapa3[xm2][ym2 + 1] != 'D') {
+                if (dif_y > 0 && mapa3[xm2][ym2 + 1] != '*' && mapa3[xm2][ym2 + 1] != 'D' && mapa3[xm2][ym2 + 1] != '#') {
                     mapa3[xm2][ym2] = ' ';
                     ym2++;
                     mapa3[xm2][ym2] = 'V';
-                } else if (dif_y < 0 && mapa3[xm2][ym2 - 1] != '*' && mapa3[xm2][ym2 - 1] != 'D') {
+                } else if (dif_y < 0 && mapa3[xm2][ym2 - 1] != '*' && mapa3[xm2][ym2 - 1] != 'D' && mapa3[xm2][ym2 - 1] != '#') {
                     mapa3[xm2][ym2] = ' ';
                     ym2--;
                     mapa3[xm2][ym2] = 'V';
@@ -849,6 +935,86 @@ void fase3(){
                         x--;
                         mapa3[x+1][y] = 'O';
                 }
+                else if((mapa3[x][y] == mapa3[12][20]) ||
+                		(mapa3[x][y] == mapa3[13][20]) ||
+						(mapa3[x][y] == mapa3[14][20]) ||
+						(mapa3[x][y] == mapa3[14][21]) ||
+						(mapa3[x][y] == mapa3[14][22]) ||
+						(mapa3[x][y] == mapa3[14][23]) ||
+						(mapa3[x][y] == mapa3[14][24]) ||
+						(mapa3[x][y] == mapa3[15][25]) ||
+						(mapa3[x][y] == mapa3[16][25]) ||
+						(mapa3[x][y] == mapa3[17][25]) ||
+						(mapa3[x][y] == mapa3[18][25]) ||
+						(mapa3[x][y] == mapa3[19][25]) ||
+						(mapa3[x][y] == mapa3[19][26]) ||
+						(mapa3[x][y] == mapa3[19][27]) ||
+						(mapa3[x][y] == mapa3[19][27]) ||
+						(mapa3[x][y] == mapa3[20][27]) ||
+						(mapa3[x][y] == mapa3[21][27]) ||
+						(mapa3[x][y] == mapa3[22][26]) ||
+						(mapa3[x][y] == mapa3[22][25]) ||
+						(mapa3[x][y] == mapa3[22][25]) ||
+						(mapa3[x][y] == mapa3[23][24]) ||
+						(mapa3[x][y] == mapa3[23][23]) ||
+						(mapa3[x][y] == mapa3[24][23]) ||
+						(mapa3[x][y] == mapa3[25][23]) ||
+						(mapa3[x][y] == mapa3[26][22]) ||
+						(mapa3[x][y] == mapa3[27][22]) ||
+						(mapa3[x][y] == mapa3[27][21]) ||
+						(mapa3[x][y] == mapa3[27][20]) ||
+						(mapa3[x][y] == mapa3[14][17]) ||
+						(mapa3[x][y] == mapa3[15][17]) ||
+						(mapa3[x][y] == mapa3[16][18]) ||
+						(mapa3[x][y] == mapa3[17][19]) ||
+						(mapa3[x][y] == mapa3[18][19]) ||
+						(mapa3[x][y] == mapa3[19][19]) ||
+						(mapa3[x][y] == mapa3[19][20]) ||
+						(mapa3[x][y] == mapa3[22][19]) ||
+						(mapa3[x][y] == mapa3[22][18]) ||
+						(mapa3[x][y] == mapa3[23][18]) ||
+						(mapa3[x][y] == mapa3[24][18]) ||
+						(mapa3[x][y] == mapa3[25][18]) ||
+						(mapa3[x][y] == mapa3[26][18]) ||
+						(mapa3[x][y] == mapa3[27][18]) ||
+						(mapa3[x][y] == mapa3[12][13]) ||
+						(mapa3[x][y] == mapa3[12][12]) ||
+						(mapa3[x][y] == mapa3[13][12]) ||
+						(mapa3[x][y] == mapa3[14][12]) ||
+						(mapa3[x][y] == mapa3[15][12]) ||
+						(mapa3[x][y] == mapa3[16][12]) ||
+						(mapa3[x][y] == mapa3[17][12]) ||
+						(mapa3[x][y] == mapa3[17][13]) ||
+						(mapa3[x][y] == mapa3[17][14]) ||
+						(mapa3[x][y] == mapa3[18][15]) ||
+						(mapa3[x][y] == mapa3[19][15]) ||
+						(mapa3[x][y] == mapa3[20][14]) ||
+						(mapa3[x][y] == mapa3[21][13]) ||
+						(mapa3[x][y] == mapa3[21][12]) ||
+						(mapa3[x][y] == mapa3[22][12]) ||
+						(mapa3[x][y] == mapa3[23][12]) ||
+						(mapa3[x][y] == mapa3[24][12]) ||
+						(mapa3[x][y] == mapa3[24][13]) ||
+						(mapa3[x][y] == mapa3[24][14]) ||
+						(mapa3[x][y] == mapa3[25][12]) ||
+						(mapa3[x][y] == mapa3[25][13]) ||
+						(mapa3[x][y] == mapa3[25][14]) ||
+						(mapa3[x][y] == mapa3[25][15]) ||
+						(mapa3[x][y] == mapa3[26][12]) ||
+						(mapa3[x][y] == mapa3[26][13]) ||
+						(mapa3[x][y] == mapa3[26][14]) ||
+						(mapa3[x][y] == mapa3[27][12]) ||
+						(mapa3[x][y] == mapa3[27][13]) ||
+						(mapa3[x][y] == mapa3[27][14]) ||
+						(mapa3[x][y] == mapa3[27][15]) ||
+						(mapa3[x][y] == mapa3[27][16]) ||
+						(mapa3[x][y] == mapa3[27][17]) ||
+						(mapa3[x][y] == mapa3[26][25]) ||
+						(mapa3[x][y] == mapa3[26][26]) ||
+						(mapa3[x][y] == mapa3[25][26])) {
+						x--;
+						mapa3[x+1][y] = '#';
+					}
                  else {
                     x--;
                     mapa3[x + 1][y] = ' ';
@@ -874,14 +1040,94 @@ void fase3(){
                     	x++;
                         mapa3[x-1][y] = '@';
                 }
-                else if((mapa3[x][y] == mapa3[29][34] || (mapa3[x][y] == mapa3[11][19]))){
+                else if((mapa3[x][y] == mapa3[29][34]) || (mapa3[x][y] == mapa3[11][19])){
                     	x++;
                         mapa3[x-1][y] = '>';
-                }
+                }	
                 else if((mapa3[x][y] == mapa3[30][5]) || (mapa3[x][y] == mapa3[18][17]) ){
                         x++;
                         mapa3[x-1][y] = 'O';
                 }
+                else if((mapa3[x][y] == mapa3[12][20]) ||
+                		(mapa3[x][y] == mapa3[13][20]) ||
+						(mapa3[x][y] == mapa3[14][20]) ||
+						(mapa3[x][y] == mapa3[14][21]) ||
+						(mapa3[x][y] == mapa3[14][22]) ||
+						(mapa3[x][y] == mapa3[14][23]) ||
+						(mapa3[x][y] == mapa3[14][24]) ||
+						(mapa3[x][y] == mapa3[15][25]) ||
+						(mapa3[x][y] == mapa3[16][25]) ||
+						(mapa3[x][y] == mapa3[17][25]) ||
+						(mapa3[x][y] == mapa3[18][25]) ||
+						(mapa3[x][y] == mapa3[19][25]) ||
+						(mapa3[x][y] == mapa3[19][26]) ||
+						(mapa3[x][y] == mapa3[19][27]) ||
+						(mapa3[x][y] == mapa3[19][27]) ||
+						(mapa3[x][y] == mapa3[20][27]) ||
+						(mapa3[x][y] == mapa3[21][27]) ||
+						(mapa3[x][y] == mapa3[22][26]) ||
+						(mapa3[x][y] == mapa3[22][25]) ||
+						(mapa3[x][y] == mapa3[22][25]) ||
+						(mapa3[x][y] == mapa3[23][24]) ||
+						(mapa3[x][y] == mapa3[23][23]) ||
+						(mapa3[x][y] == mapa3[24][23]) ||
+						(mapa3[x][y] == mapa3[25][23]) ||
+						(mapa3[x][y] == mapa3[26][22]) ||
+						(mapa3[x][y] == mapa3[27][22]) ||
+						(mapa3[x][y] == mapa3[27][21]) ||
+						(mapa3[x][y] == mapa3[27][20]) ||
+						(mapa3[x][y] == mapa3[14][17]) ||
+						(mapa3[x][y] == mapa3[15][17]) ||
+						(mapa3[x][y] == mapa3[16][18]) ||
+						(mapa3[x][y] == mapa3[17][19]) ||
+						(mapa3[x][y] == mapa3[18][19]) ||
+						(mapa3[x][y] == mapa3[19][19]) ||
+						(mapa3[x][y] == mapa3[19][20]) ||
+						(mapa3[x][y] == mapa3[22][19]) ||
+						(mapa3[x][y] == mapa3[22][18]) ||
+						(mapa3[x][y] == mapa3[23][18]) ||
+						(mapa3[x][y] == mapa3[24][18]) ||
+						(mapa3[x][y] == mapa3[25][18]) ||
+						(mapa3[x][y] == mapa3[26][18]) ||
+						(mapa3[x][y] == mapa3[27][18]) ||
+						(mapa3[x][y] == mapa3[12][13]) ||
+						(mapa3[x][y] == mapa3[12][12]) ||
+						(mapa3[x][y] == mapa3[13][12]) ||
+						(mapa3[x][y] == mapa3[14][12]) ||
+						(mapa3[x][y] == mapa3[15][12]) ||
+						(mapa3[x][y] == mapa3[16][12]) ||
+						(mapa3[x][y] == mapa3[17][12]) ||
+						(mapa3[x][y] == mapa3[17][13]) ||
+						(mapa3[x][y] == mapa3[17][14]) ||
+						(mapa3[x][y] == mapa3[18][15]) ||
+						(mapa3[x][y] == mapa3[19][15]) ||
+						(mapa3[x][y] == mapa3[20][14]) ||
+						(mapa3[x][y] == mapa3[21][13]) ||
+						(mapa3[x][y] == mapa3[21][12]) ||
+						(mapa3[x][y] == mapa3[22][12]) ||
+						(mapa3[x][y] == mapa3[23][12]) ||
+						(mapa3[x][y] == mapa3[24][12]) ||
+						(mapa3[x][y] == mapa3[24][13]) ||
+						(mapa3[x][y] == mapa3[24][14]) ||
+						(mapa3[x][y] == mapa3[25][12]) ||
+						(mapa3[x][y] == mapa3[25][13]) ||
+						(mapa3[x][y] == mapa3[25][14]) ||
+						(mapa3[x][y] == mapa3[25][15]) ||
+						(mapa3[x][y] == mapa3[26][12]) ||
+						(mapa3[x][y] == mapa3[26][13]) ||
+						(mapa3[x][y] == mapa3[26][14]) ||
+						(mapa3[x][y] == mapa3[27][12]) ||
+						(mapa3[x][y] == mapa3[27][13]) ||
+						(mapa3[x][y] == mapa3[27][14]) ||
+						(mapa3[x][y] == mapa3[27][15]) ||
+						(mapa3[x][y] == mapa3[27][16]) ||
+						(mapa3[x][y] == mapa3[27][17]) ||
+						(mapa3[x][y] == mapa3[26][25]) ||
+						(mapa3[x][y] == mapa3[26][26]) ||
+						(mapa3[x][y] == mapa3[25][26])) {
+						x++;
+						mapa3[x-1][y] = '#';
+					}
                  else {
                     x++;
                     mapa3[x - 1][y] = ' ';
@@ -915,6 +1161,86 @@ void fase3(){
                         y--;
                         mapa3[x][y+1] = 'O';
                 }
+                else if((mapa3[x][y] == mapa3[12][20]) ||
+                		(mapa3[x][y] == mapa3[13][20]) ||
+						(mapa3[x][y] == mapa3[14][20]) ||
+						(mapa3[x][y] == mapa3[14][21]) ||
+						(mapa3[x][y] == mapa3[14][22]) ||
+						(mapa3[x][y] == mapa3[14][23]) ||
+						(mapa3[x][y] == mapa3[14][24]) ||
+						(mapa3[x][y] == mapa3[15][25]) ||
+						(mapa3[x][y] == mapa3[16][25]) ||
+						(mapa3[x][y] == mapa3[17][25]) ||
+						(mapa3[x][y] == mapa3[18][25]) ||
+						(mapa3[x][y] == mapa3[19][25]) ||
+						(mapa3[x][y] == mapa3[19][26]) ||
+						(mapa3[x][y] == mapa3[19][27]) ||
+						(mapa3[x][y] == mapa3[19][27]) ||
+						(mapa3[x][y] == mapa3[20][27]) ||
+						(mapa3[x][y] == mapa3[21][27]) ||
+						(mapa3[x][y] == mapa3[22][26]) ||
+						(mapa3[x][y] == mapa3[22][25]) ||
+						(mapa3[x][y] == mapa3[22][25]) ||
+						(mapa3[x][y] == mapa3[23][24]) ||
+						(mapa3[x][y] == mapa3[23][23]) ||
+						(mapa3[x][y] == mapa3[24][23]) ||
+						(mapa3[x][y] == mapa3[25][23]) ||
+						(mapa3[x][y] == mapa3[26][22]) ||
+						(mapa3[x][y] == mapa3[27][22]) ||
+						(mapa3[x][y] == mapa3[27][21]) ||
+						(mapa3[x][y] == mapa3[27][20]) ||
+						(mapa3[x][y] == mapa3[14][17]) ||
+						(mapa3[x][y] == mapa3[15][17]) ||
+						(mapa3[x][y] == mapa3[16][18]) ||
+						(mapa3[x][y] == mapa3[17][19]) ||
+						(mapa3[x][y] == mapa3[18][19]) ||
+						(mapa3[x][y] == mapa3[19][19]) ||
+						(mapa3[x][y] == mapa3[19][20]) ||
+						(mapa3[x][y] == mapa3[22][19]) ||
+						(mapa3[x][y] == mapa3[22][18]) ||
+						(mapa3[x][y] == mapa3[23][18]) ||
+						(mapa3[x][y] == mapa3[24][18]) ||
+						(mapa3[x][y] == mapa3[25][18]) ||
+						(mapa3[x][y] == mapa3[26][18]) ||
+						(mapa3[x][y] == mapa3[27][18]) ||
+						(mapa3[x][y] == mapa3[12][13]) ||
+						(mapa3[x][y] == mapa3[12][12]) ||
+						(mapa3[x][y] == mapa3[13][12]) ||
+						(mapa3[x][y] == mapa3[14][12]) ||
+						(mapa3[x][y] == mapa3[15][12]) ||
+						(mapa3[x][y] == mapa3[16][12]) ||
+						(mapa3[x][y] == mapa3[17][12]) ||
+						(mapa3[x][y] == mapa3[17][13]) ||
+						(mapa3[x][y] == mapa3[17][14]) ||
+						(mapa3[x][y] == mapa3[18][15]) ||
+						(mapa3[x][y] == mapa3[19][15]) ||
+						(mapa3[x][y] == mapa3[20][14]) ||
+						(mapa3[x][y] == mapa3[21][13]) ||
+						(mapa3[x][y] == mapa3[21][12]) ||
+						(mapa3[x][y] == mapa3[22][12]) ||
+						(mapa3[x][y] == mapa3[23][12]) ||
+						(mapa3[x][y] == mapa3[24][12]) ||
+						(mapa3[x][y] == mapa3[24][13]) ||
+						(mapa3[x][y] == mapa3[24][14]) ||
+						(mapa3[x][y] == mapa3[25][12]) ||
+						(mapa3[x][y] == mapa3[25][13]) ||
+						(mapa3[x][y] == mapa3[25][14]) ||
+						(mapa3[x][y] == mapa3[25][15]) ||
+						(mapa3[x][y] == mapa3[26][12]) ||
+						(mapa3[x][y] == mapa3[26][13]) ||
+						(mapa3[x][y] == mapa3[26][14]) ||
+						(mapa3[x][y] == mapa3[27][12]) ||
+						(mapa3[x][y] == mapa3[27][13]) ||
+						(mapa3[x][y] == mapa3[27][14]) ||
+						(mapa3[x][y] == mapa3[27][15]) ||
+						(mapa3[x][y] == mapa3[27][16]) ||
+						(mapa3[x][y] == mapa3[27][17]) ||
+						(mapa3[x][y] == mapa3[26][25]) ||
+						(mapa3[x][y] == mapa3[26][26]) ||
+						(mapa3[x][y] == mapa3[25][26])) {
+						y--;
+						mapa3[x][y+1] = '#';
+					}
                  else {
                     y--;
                     mapa3[x][y + 1] = ' ';
@@ -948,6 +1274,86 @@ void fase3(){
                         y++;
                         mapa3[x][y-1] = 'O';
                 }
+                else if((mapa3[x][y] == mapa3[12][20]) ||
+                		(mapa3[x][y] == mapa3[13][20]) ||
+						(mapa3[x][y] == mapa3[14][20]) ||
+						(mapa3[x][y] == mapa3[14][21]) ||
+						(mapa3[x][y] == mapa3[14][22]) ||
+						(mapa3[x][y] == mapa3[14][23]) ||
+						(mapa3[x][y] == mapa3[14][24]) ||
+						(mapa3[x][y] == mapa3[15][25]) ||
+						(mapa3[x][y] == mapa3[16][25]) ||
+						(mapa3[x][y] == mapa3[17][25]) ||
+						(mapa3[x][y] == mapa3[18][25]) ||
+						(mapa3[x][y] == mapa3[19][25]) ||
+						(mapa3[x][y] == mapa3[19][26]) ||
+						(mapa3[x][y] == mapa3[19][27]) ||
+						(mapa3[x][y] == mapa3[19][27]) ||
+						(mapa3[x][y] == mapa3[20][27]) ||
+						(mapa3[x][y] == mapa3[21][27]) ||
+						(mapa3[x][y] == mapa3[22][26]) ||
+						(mapa3[x][y] == mapa3[22][25]) ||
+						(mapa3[x][y] == mapa3[22][25]) ||
+						(mapa3[x][y] == mapa3[23][24]) ||
+						(mapa3[x][y] == mapa3[23][23]) ||
+						(mapa3[x][y] == mapa3[24][23]) ||
+						(mapa3[x][y] == mapa3[25][23]) ||
+						(mapa3[x][y] == mapa3[26][22]) ||
+						(mapa3[x][y] == mapa3[27][22]) ||
+						(mapa3[x][y] == mapa3[27][21]) ||
+						(mapa3[x][y] == mapa3[27][20]) ||
+						(mapa3[x][y] == mapa3[14][17]) ||
+						(mapa3[x][y] == mapa3[15][17]) ||
+						(mapa3[x][y] == mapa3[16][18]) ||
+						(mapa3[x][y] == mapa3[17][19]) ||
+						(mapa3[x][y] == mapa3[18][19]) ||
+						(mapa3[x][y] == mapa3[19][19]) ||
+						(mapa3[x][y] == mapa3[19][20]) ||
+						(mapa3[x][y] == mapa3[22][19]) ||
+						(mapa3[x][y] == mapa3[22][18]) ||
+						(mapa3[x][y] == mapa3[23][18]) ||
+						(mapa3[x][y] == mapa3[24][18]) ||
+						(mapa3[x][y] == mapa3[25][18]) ||
+						(mapa3[x][y] == mapa3[26][18]) ||
+						(mapa3[x][y] == mapa3[27][18]) ||
+						(mapa3[x][y] == mapa3[12][13]) ||
+						(mapa3[x][y] == mapa3[12][12]) ||
+						(mapa3[x][y] == mapa3[13][12]) ||
+						(mapa3[x][y] == mapa3[14][12]) ||
+						(mapa3[x][y] == mapa3[15][12]) ||
+						(mapa3[x][y] == mapa3[16][12]) ||
+						(mapa3[x][y] == mapa3[17][12]) ||
+						(mapa3[x][y] == mapa3[17][13]) ||
+						(mapa3[x][y] == mapa3[17][14]) ||
+						(mapa3[x][y] == mapa3[18][15]) ||
+						(mapa3[x][y] == mapa3[19][15]) ||
+						(mapa3[x][y] == mapa3[20][14]) ||
+						(mapa3[x][y] == mapa3[21][13]) ||
+						(mapa3[x][y] == mapa3[21][12]) ||
+						(mapa3[x][y] == mapa3[22][12]) ||
+						(mapa3[x][y] == mapa3[23][12]) ||
+						(mapa3[x][y] == mapa3[24][12]) ||
+						(mapa3[x][y] == mapa3[24][13]) ||
+						(mapa3[x][y] == mapa3[24][14]) ||
+						(mapa3[x][y] == mapa3[25][12]) ||
+						(mapa3[x][y] == mapa3[25][13]) ||
+						(mapa3[x][y] == mapa3[25][14]) ||
+						(mapa3[x][y] == mapa3[25][15]) ||
+						(mapa3[x][y] == mapa3[26][12]) ||
+						(mapa3[x][y] == mapa3[26][13]) ||
+						(mapa3[x][y] == mapa3[26][14]) ||
+						(mapa3[x][y] == mapa3[27][12]) ||
+						(mapa3[x][y] == mapa3[27][13]) ||
+						(mapa3[x][y] == mapa3[27][14]) ||
+						(mapa3[x][y] == mapa3[27][15]) ||
+						(mapa3[x][y] == mapa3[27][16]) ||
+						(mapa3[x][y] == mapa3[27][17]) ||
+						(mapa3[x][y] == mapa3[26][25]) ||
+						(mapa3[x][y] == mapa3[26][26]) ||
+						(mapa3[x][y] == mapa3[25][26])) {
+						y++;
+						mapa3[x][y-1] = '#';
+					}
                  else {
                     y++;
                     mapa3[x][y - 1] = ' ';
@@ -1005,6 +1411,52 @@ void fase3(){
         	//Chave
         	mapa3[37][37] = '@';
 		}
+		if(mov == 'i' && mapa3[x][y] == mapa3[9][9]){
+        	//Tunel Cima parte superior
+        	mapa3[5][10] = ' ';
+        	mapa3[5][29] = ' ';
+        	mapa3[4][11] = '*';
+        	mapa3[4][12] = '*';
+        	mapa3[4][13] = '*';
+        	mapa3[4][14] = '*';
+        	mapa3[4][15] = '*';
+        	mapa3[4][16] = '*';
+        	mapa3[4][17] = '*';
+        	mapa3[4][18] = '*';
+        	mapa3[4][19] = '*';
+        	mapa3[4][20] = '*';
+        	mapa3[4][21] = '*';
+        	mapa3[4][22] = '*';
+        	mapa3[4][23] = '*';
+        	mapa3[4][24] = '*';
+        	mapa3[4][25] = '*';
+        	mapa3[4][26] = '*';
+        	mapa3[4][27] = '*';
+        	mapa3[4][28] = '*';
+        	mapa3[4][29] = '*';
+        	//Tunel Baixo parte superior
+        	mapa3[6][11] = '*';
+        	mapa3[6][12] = '*';
+        	mapa3[6][13] = '*';
+        	mapa3[6][14] = '*';
+        	mapa3[6][15] = '*';
+        	mapa3[6][16] = '*';
+        	mapa3[6][17] = '*';
+        	mapa3[6][18] = '*';
+        	mapa3[6][19] = '*';
+        	mapa3[6][20] = '*';
+        	mapa3[6][21] = '*';
+        	mapa3[6][22] = '*';
+        	mapa3[6][23] = '*';
+        	mapa3[6][24] = '*';
+        	mapa3[6][25] = '*';
+        	mapa3[6][26] = '*';
+        	mapa3[6][27] = '*';
+        	mapa3[6][28] = '*';
+        	mapa3[6][29] = '*';
+        	//Chave
+        	mapa3[37][37] = '@';
+		}
 		else if(mov == 'i' && (x == 37 && y == 37)){
                 chave1_obtida++;
                 mapa3[3][38] = '=';
@@ -1014,12 +1466,122 @@ void fase3(){
 		if(mov == 'w' && (x == 29 && y == 34)){
 			mapa3[x][y] = ' ';
 			mapa3[29][34] = '>';
-			int destX = 11;
+			int destX = 12;
 			int destY = 19;
 			x = destX;
     		y = destY;
     		mapa3[x][y] = '&';
 		}
+		if(mov == 'w' && (x == 11 && y == 19)){
+			mapa3[x][y] = ' ';
+			mapa3[11][19] = '>';
+			int destX = 29;
+			int destY = 34;
+			x = destX;
+    		y = destY;
+    		mapa3[x][y] = '&';
+		}
+		if(mov == 's' && (x == 28 && y == 19)){
+			mapa3[x][y] = ' ';
+			mapa3[28][19] = '>';
+			int destX = 5;
+			int destY = 2;
+			x = destX;
+    		y = destY;
+    		mapa3[x][y] = '&';
+		}
+		if(mov == 'a' && (x == 5 && y == 1)){
+			mapa3[x][y] = ' ';
+			mapa3[5][1] = '>';
+			int destX = 27;
+			int destY = 19;
+			x = destX;
+    		y = destY;
+    		mapa3[x][y] = '&';
+		}
+					 if((mapa3[x][y] == mapa3[12][20]) ||
+                		(mapa3[x][y] == mapa3[13][20]) ||
+						(mapa3[x][y] == mapa3[14][20]) ||
+						(mapa3[x][y] == mapa3[14][21]) ||
+						(mapa3[x][y] == mapa3[14][22]) ||
+						(mapa3[x][y] == mapa3[14][23]) ||
+						(mapa3[x][y] == mapa3[14][24]) ||
+						(mapa3[x][y] == mapa3[15][25]) ||
+						(mapa3[x][y] == mapa3[16][25]) ||
+						(mapa3[x][y] == mapa3[17][25]) ||
+						(mapa3[x][y] == mapa3[18][25]) ||
+						(mapa3[x][y] == mapa3[19][25]) ||
+						(mapa3[x][y] == mapa3[19][26]) ||
+						(mapa3[x][y] == mapa3[19][27]) ||
+						(mapa3[x][y] == mapa3[19][27]) ||
+						(mapa3[x][y] == mapa3[20][27]) ||
+						(mapa3[x][y] == mapa3[21][27]) ||
+						(mapa3[x][y] == mapa3[22][26]) ||
+						(mapa3[x][y] == mapa3[22][25]) ||
+						(mapa3[x][y] == mapa3[22][25]) ||
+						(mapa3[x][y] == mapa3[23][24]) ||
+						(mapa3[x][y] == mapa3[23][23]) ||
+						(mapa3[x][y] == mapa3[24][23]) ||
+						(mapa3[x][y] == mapa3[25][23]) ||
+						(mapa3[x][y] == mapa3[26][22]) ||
+						(mapa3[x][y] == mapa3[27][22]) ||
+						(mapa3[x][y] == mapa3[27][21]) ||
+						(mapa3[x][y] == mapa3[27][20]) ||
+						(mapa3[x][y] == mapa3[14][17]) ||
+						(mapa3[x][y] == mapa3[15][17]) ||
+						(mapa3[x][y] == mapa3[16][18]) ||
+						(mapa3[x][y] == mapa3[17][19]) ||
+						(mapa3[x][y] == mapa3[18][19]) ||
+						(mapa3[x][y] == mapa3[19][19]) ||
+						(mapa3[x][y] == mapa3[19][20]) ||
+						(mapa3[x][y] == mapa3[22][19]) ||
+						(mapa3[x][y] == mapa3[22][18]) ||
+						(mapa3[x][y] == mapa3[23][18]) ||
+						(mapa3[x][y] == mapa3[24][18]) ||
+						(mapa3[x][y] == mapa3[25][18]) ||
+						(mapa3[x][y] == mapa3[26][18]) ||
+						(mapa3[x][y] == mapa3[27][18]) ||
+						(mapa3[x][y] == mapa3[12][13]) ||
+						(mapa3[x][y] == mapa3[12][12]) ||
+						(mapa3[x][y] == mapa3[13][12]) ||
+						(mapa3[x][y] == mapa3[14][12]) ||
+						(mapa3[x][y] == mapa3[15][12]) ||
+						(mapa3[x][y] == mapa3[16][12]) ||
+						(mapa3[x][y] == mapa3[17][12]) ||
+						(mapa3[x][y] == mapa3[17][13]) ||
+						(mapa3[x][y] == mapa3[17][14]) ||
+						(mapa3[x][y] == mapa3[18][15]) ||
+						(mapa3[x][y] == mapa3[19][15]) ||
+						(mapa3[x][y] == mapa3[20][14]) ||
+						(mapa3[x][y] == mapa3[21][13]) ||
+						(mapa3[x][y] == mapa3[21][12]) ||
+						(mapa3[x][y] == mapa3[22][12]) ||
+						(mapa3[x][y] == mapa3[23][12]) ||
+						(mapa3[x][y] == mapa3[24][12]) ||
+						(mapa3[x][y] == mapa3[24][13]) ||
+						(mapa3[x][y] == mapa3[24][14]) ||
+						(mapa3[x][y] == mapa3[25][12]) ||
+						(mapa3[x][y] == mapa3[25][13]) ||
+						(mapa3[x][y] == mapa3[25][14]) ||
+						(mapa3[x][y] == mapa3[25][15]) ||
+						(mapa3[x][y] == mapa3[26][12]) ||
+						(mapa3[x][y] == mapa3[26][13]) ||
+						(mapa3[x][y] == mapa3[26][14]) ||
+						(mapa3[x][y] == mapa3[27][12]) ||
+						(mapa3[x][y] == mapa3[27][13]) ||
+						(mapa3[x][y] == mapa3[27][14]) ||
+						(mapa3[x][y] == mapa3[27][15]) ||
+						(mapa3[x][y] == mapa3[27][16]) ||
+						(mapa3[x][y] == mapa3[27][17]) ||
+						(mapa3[x][y] == mapa3[26][25]) ||
+						(mapa3[x][y] == mapa3[26][26]) ||
+						(mapa3[x][y] == mapa3[25][26])){
+    			vida--;
+    			printf("Voce foi atingido por um espinho venenoso, Voce tem %d vidas\n", vida);
+        		printf("Pressione qualquer tecla para continuar...\n");
+        		getch();
+        		system("cls");
+		   }
 		if (x == xm && y == ym){
             	vida--;
         		printf("Voce foi pego pelo monstro, Voce tem %d vidas!\n", vida);
@@ -1034,19 +1596,32 @@ void fase3(){
         		getch();
         		system("cls");
     		}
-    	if (mapa3[x][y] == espinho){
-    			vida--;
-    			printf("Voce foi atingido por um espinho venenoso, Voce tem %d vidas\n", vida);
-        		printf("Pressione qualquer tecla para continuar...\n");
-        		getch();
-        		system("cls");
-			}
 		if(vida==0){
 				printf("Voce Morreu, Voce e pessimo vai treinar\n");
         		printf("Pressione qualquer tecla para continuar...\n");
         		getch();
         		system("cls");
-        		return fase2();
+        		return fase3();
+			}
+		else if(mov == 'd' && (x == 3 && y == 39)){
+            	printf("E FINALMENTE CASSEB ACHA O GIRROTO\nGirroto: Casseb! Voce nao sabe como e bom ver uma cara amiga. Achei que nunca mais sairia dessa caverna.\n"
+           				"Casseb: Girroto! Que alivio te encontrar! Estava te procurando ha horas. Voce esta bem?\n"
+           				"Girroto: Agora estou melhor, mas foi assustador. A caverna e um verdadeiro labirinto. Cada passagem parecia igual, e eu acabei me perdendo completamente.\n"
+           				"Casseb: Imagino o desespero. Mas fique tranquilo, ja estamos quase fora. Por onde voce entrou?\n"
+           				"Girroto: Entrei por uma abertura estreita perto de um grande carvalho. Estava seguindo algumas pegadas, mas elas sumiram de repente, e eu acabei entrando mais fundo na caverna.\n"
+           				"Casseb: Essa caverna e traicoeira. Muita gente ja se perdeu por aqui. Ainda bem que trouxe minha tocha e alguns suprimentos. Aqui, tome um pouco de agua.\n"
+           				"Girroto: Muito obrigado, Casseb. Nao sei como te agradecer. Estava comecando a perder as esperancas.\n"
+           				"Casseb: Nao precisa agradecer, Girroto. Somos amigos, e claro que eu viria te procurar. Alem disso, você faria o mesmo por mim.\n"
+           				"Girroto: Com certeza faria. Mas agora, so quero sair daqui. Sabe o caminho?\n"
+           				"Casseb: Sim, seguimos por aqui. Tenho uma marcacao no caminho que fiz para nao me perder tambem. Vamos devagar e com cuidado.\n"
+           				"Girroto: Tudo bem. Só de saber que estamos saindo ja me sinto mais aliviado.\n"
+           				"Casseb: Vamos la, Girroto. Logo estaremos fora dessa escuridao. E depois disso, prometo que nunca mais nos aventuramos em uma caverna sem um bom mapa!\n"
+           				"Girroto: Combinado. Agora, vamos sair daqui e respirar um pouco de ar fresco. Estou mais do que pronto para isso.\n");
+           				printf("\nPARABENS VOCE ZEROU O GAME DO GOAT CASSEB E O MESTRE GIRAS, PARABENS E OBRIGADO POR JOGAR!\n");
+            		printf("Pressione qualquer tecla para voltar ao menu.\n");
+            	getch();
+            	system("cls");
+            	return menu();
 			}
         else if(mov == 'q'){
             printf("Deseja sair do jogo? (S/N): ");
